@@ -12,6 +12,7 @@ public class Main {
         System.out.println("\n После сортировки \n"
                 + people.stream().map(Person::toString).collect(Collectors.joining("\n")));
     }
+
     private static List<Person> generetePerson() {
         return Stream.of(
                 new Person("Cris", "Ibn Ali Maha", 25),
