@@ -5,19 +5,17 @@ import java.util.stream.Stream;
 public class Main {
     public static void main(String[] args) {
         List<Person> people = generetePerson();
-        PersonComparator personComparator = new PersonComparator(1);
-        System.out.println("До сортировки \n"
-                + people.stream().map(Person::toString).collect(Collectors.joining("\n")));
-        people.sort(personComparator);
-        System.out.println("\n После сортировки \n"
-                + people.stream().map(Person::toString).collect(Collectors.joining("\n")));
+        people.removeIf(person -> person.getAge() < 18);
+        people.forEach(System.out::println);
     }
 
     private static List<Person> generetePerson() {
         return Stream.of(
                 new Person("Cris", "Ibn Ali Maha", 25),
                 new Person("Mulla", "Al Guri", 32),
-                new Person("Far", "Al Gazi Bula", 40),
+                new Person("Far", "Al Gazi Bula", 16),
+                new Person("Kat", "Jafar", 21),
+                new Person("Stiv", "Al Rashid", 14),
                 new Person("Radg", "Ali", 25)
         ).collect(Collectors.toList());
     }
