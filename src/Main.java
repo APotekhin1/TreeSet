@@ -7,13 +7,13 @@ public class Main {
         List<Person> people = generetePerson();
         System.out.println("До сортировки \n"
                 + people.stream().map(Person::toString).collect(Collectors.joining("\n")));
-        people.sort ((o1, o2) -> {
-                int lengthSureNameFirstPerson = o1.getSurName().split("\\h").length;
-                int lengthSureNameSecondPerson = o2.getSurName().split("\\h").length;
-                if (lengthSureNameFirstPerson == lengthSureNameSecondPerson) {
-                    return Integer.compare(o1.getAge(), o2.getAge());
-                }
-        return lengthSureNameFirstPerson > lengthSureNameSecondPerson ? 1 : -1;
+        people.sort((o1, o2) -> {
+            int lengthSureNameFirstPerson = o1.getSurName().split("\\h").length;
+            int lengthSureNameSecondPerson = o2.getSurName().split("\\h").length;
+            if (lengthSureNameFirstPerson == lengthSureNameSecondPerson) {
+                return Integer.compare(o1.getAge(), o2.getAge());
+            }
+            return lengthSureNameFirstPerson > lengthSureNameSecondPerson ? 1 : -1;
         });
         System.out.println("\n После сортировки \n"
                 + people.stream().map(Person::toString).collect(Collectors.joining("\n")));
@@ -25,6 +25,7 @@ public class Main {
                 new Person("Mulla", "Al Guri", 32),
                 new Person("Far", "Al Gazi Bula", 40),
                 new Person("Radg", "Ali", 25),
+                new Person("Kat", "Jafar", 21),
                 new Person("Stiv", "Al Rashid", 35)
         ).collect(Collectors.toList());
     }
